@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package proto;
+option go_package = "../proto";
+
+message Message {
+    string body = 1;
+}
+
+message Request {
+    string filelocation = 1;
+}
+
+message FileResponse {
+    string directory = 1;
+    string file_name = 2;
+    bytes data = 3;
+}
+
+service GetFileService {
+    rpc GetFile (Message) returns (Request) {}
+    rpc UploadFile (FileResponse) returns (Message) {}
+}
