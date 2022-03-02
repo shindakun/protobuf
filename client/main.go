@@ -98,7 +98,7 @@ retry:
 	if err != nil {
 		log.Println(err)
 	}
-	go uploadToServer(conn, f, buf)
+	uploadToServer(conn, f, buf)
 
 	if err := c.Quit(); err != nil {
 		log.Println(err)
