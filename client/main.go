@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"io"
 	"log"
@@ -49,6 +50,21 @@ retry:
 		log.Println(err)
 	}
 
+	dir := strings.Split(f, "/")[0]
+	if _, err := os.Stat(dir); err == nil {
+
+		// path/to/whatever exists
+		//fmt.Println("File exists")
+
+	} else if errors.Is(err, os.ErrNotExist) {
+
+		// path/to/whatever does *not* exist
+		err := os.Mkdir(dir, 0777)
+		if err != nil {
+			log.Println(err)
+		}
+	}
+
 	r, err := c.Retr(f)
 	if err != nil {
 
@@ -91,8 +107,13 @@ retry:
 
 func main() {
 	fmt.Println("protobuf")
+
+	if len(os.Args) < 2 {
+		log.Fatal("IP address of server is required")
+	}
+
 	var conn *grpc.ClientConn
-	conn, err := grpc.Dial(":9000", grpc.WithTransportCredentials(insecure.NewCredentials()))
+	conn, err := grpc.Dial(os.Args[1]+":9000", grpc.WithTransportCredentials(insecure.NewCredentials()))
 	if err != nil {
 		log.Fatalf("did not connect: %s", err)
 	}
