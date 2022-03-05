@@ -1,0 +1,16 @@
+[Unit]
+Description=Service that starts up ftp-load server
+
+[Install]
+WantedBy=multi-user.target
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/home/stevelaytonpdx/protobuf/server/server
+WorkingDirectory=/home/stevelaytonpdx/protobuf/server
+Restart=always
+RestartSec=5
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=%n

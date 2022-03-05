@@ -41,11 +41,26 @@ func loadFileList() {
 
 func (s *Server) GetFile(ctx context.Context, in *proto.Message) (*proto.Request, error) {
 	if in.Body == "next" {
+	newFile:
 		var file string
 		file, files = files[0], files[1:]
-		return &proto.Request{
-			Filelocation: file,
-		}, nil
+
+		if _, err := os.Stat(file); err == nil {
+			goto newFile
+			// path/to/whatever exists
+			//fmt.Println("File exists")
+
+		} else if errors.Is(err, os.ErrNotExist) {
+
+			// path/to/whatever does *not* exist
+			return &proto.Request{
+				Filelocation: file,
+			}, nil
+		}
+
+		// return &proto.Request{
+		// 	Filelocation: file,
+		// }, nil
 	}
 	return &proto.Request{Filelocation: ""}, errors.New("error")
 }
