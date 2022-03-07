@@ -1905,7 +1905,7 @@ door_converters_and_utils/doorm10.zip
 door_converters_and_utils/doormod1.zip
 door_converters_and_utils/doormt10.zip
 door_converters_and_utils/doorplay.zip
-door_converters_and_utils/doorrip%21.zip
+door_converters_and_utils/doorrip!.zip
 door_converters_and_utils/doors13.zip
 door_converters_and_utils/doorst11.zip
 door_converters_and_utils/doorst15.zip
