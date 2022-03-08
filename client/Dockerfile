@@ -14,4 +14,4 @@ RUN chmod +x /usr/local/bin/ftp-load-client
 # executable
 ENTRYPOINT [ "ftp-load-client" ]
 # arguments
-CMD [ "34.127.66.31" ]
+CMD [ "34.82.64.125" ]

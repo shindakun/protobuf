@@ -2,7 +2,6 @@ package main
 
 import (
 	"context"
-	"errors"
 	"fmt"
 	"io"
 	"log"
@@ -50,30 +49,8 @@ retry:
 		log.Println(err)
 	}
 
-	dir := strings.Split(f, "/")[0]
-	if _, err := os.Stat(dir); err == nil {
-
-		// path/to/whatever exists
-		//fmt.Println("File exists")
-
-	} else if errors.Is(err, os.ErrNotExist) {
-
-		// path/to/whatever does *not* exist
-		err := os.Mkdir(dir, 0777)
-		if err != nil {
-			log.Println(err)
-		}
-	}
-
 	r, err := c.Retr(f)
 	if err != nil {
-
-		// Create dummy file so we can carry on
-		outFile, err := os.Create(f)
-		if err != nil {
-			log.Println(err)
-		}
-		defer outFile.Close()
 
 		// Bail out if file does not exist or other error
 		if err := c.Quit(); err != nil {
@@ -83,22 +60,12 @@ retry:
 	}
 	defer r.Close()
 
-	outFile, err := os.Create(f)
-	if err != nil {
-		log.Println(err)
-	}
-	defer outFile.Close()
-
-	_, err = io.Copy(outFile, r)
-	if err != nil {
-		log.Fatal(err)
-	}
-
 	buf, err := io.ReadAll(r)
 	if err != nil {
 		log.Println(err)
 	}
 	uploadToServer(conn, f, buf)
+	log.Printf("File %s uploaded, %d bytes", f, len(buf))
 
 	if err := c.Quit(); err != nil {
 		log.Println(err)
