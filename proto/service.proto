@@ -12,9 +12,8 @@ message Request {
 }
 
 message FileResponse {
-    string directory = 1;
-    string file_name = 2;
-    bytes data = 3;
+    string path = 1;
+    bytes data = 2;
 }
 
 service GetFileService {

@@ -8,6 +8,7 @@ import (
 	"log"
 	"net"
 	"os"
+	"strings"
 
 	"github.com/shindakun/protobuf/proto"
 	"google.golang.org/grpc"
@@ -66,9 +67,12 @@ func (s *Server) GetFile(ctx context.Context, in *proto.Message) (*proto.Request
 }
 
 func (s *Server) UploadFile(ctx context.Context, in *proto.FileResponse) (*proto.Message, error) {
-	log.Printf("Recieving file: %s/%s", in.Directory, in.FileName)
+	log.Printf("Recieving file: %s", in.Path)
 
-	if _, err := os.Stat(in.Directory); err == nil {
+	splitPath := strings.Split(in.Path, "/")
+	directory := strings.Join(splitPath[:len(splitPath)-1], "/")
+
+	if _, err := os.Stat(directory); err == nil {
 
 		// path/to/whatever exists
 		//fmt.Println("File exists")
@@ -76,13 +80,13 @@ func (s *Server) UploadFile(ctx context.Context, in *proto.FileResponse) (*proto
 	} else if errors.Is(err, os.ErrNotExist) {
 
 		// path/to/whatever does *not* exist
-		err := os.Mkdir(in.Directory, 0777)
+		err := os.MkdirAll(directory, 0777)
 		if err != nil {
 			log.Println(err)
 		}
 	}
 
-	inFile, err := os.Create(in.Directory + "/" + in.FileName)
+	inFile, err := os.Create(in.Path)
 	if err != nil {
 		log.Println(err)
 	}
