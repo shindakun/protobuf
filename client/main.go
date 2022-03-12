@@ -6,7 +6,6 @@ import (
 	"io"
 	"log"
 	"os"
-	"strings"
 	"time"
 
 	"github.com/jlaffaye/ftp"
@@ -16,16 +15,11 @@ import (
 )
 
 func uploadToServer(c proto.GetFileServiceClient, dirandname string, data []byte) {
-	s := strings.Split(dirandname, "/")
-	dir := s[0]
-	filename := s[1]
-
 	log.Println("Uploading to server:", dirandname)
 
 	response, err := c.UploadFile(context.Background(), &proto.FileResponse{
-		Directory: dir,
-		FileName:  filename,
-		Data:      data,
+		Path: dirandname,
+		Data: data,
 	})
 	if err != nil {
 		log.Fatalf("Error when calling UploadFile: %s", err)
