@@ -4974,7 +4974,7 @@ door_games/lord_igms/le100a.zip
 door_games/lord_igms/legends.zip
 door_games/lord_igms/lest10.zip
 door_games/lord_igms/lfair31.zip
-door_games/lord_igms/lhfun15%21.zip
+door_games/lord_igms/lhfun15!.zip
 door_games/lord_igms/lhh101.zip
 door_games/lord_igms/lhunt101.zip
 door_games/lord_igms/life119d.zip
@@ -5118,7 +5118,7 @@ door_games/lord_igms/ww301.zip
 door_games/lord_igms/w_isle21.zip
 door_games/lord_igms/xenon20.zip
 door_games/lord_igms/zts09a.zip
-door_games/lord_igms/%24word11.zip
+door_games/lord_igms/$word11.zip
 door_games/lord_igms/abc.zip
 door_games/lord_igms/acth103.zip
 door_games/lord_igms/advice.zip
@@ -5150,7 +5150,7 @@ door_games/lord_igms/bunny200.zip
 door_games/lord_igms/camel14.zip
 door_games/lord_igms/canoe2.zip
 door_games/lord_igms/cest202.zip
-door_games/lord_igms/change%21.zip
+door_games/lord_igms/change!.zip
 door_games/lord_igms/church15.zip
 door_games/lord_igms/circus10.zip
 door_games/lord_igms/cloak200.zip
@@ -5257,7 +5257,7 @@ door_games/lord_igms/ldchet10.zip
 door_games/lord_igms/ledlord.zip
 door_games/lord_igms/lenny200.zip
 door_games/lord_igms/lfair1y.zip
-door_games/lord_igms/lhfun20%21.zip
+door_games/lord_igms/lhfun20!.zip
 door_games/lord_igms/lianl21.zip
 door_games/lord_igms/liddux16.zip
 door_games/lord_igms/ll120.zip
@@ -5413,7 +5413,7 @@ door_games/lord_igms/srdcsl20.zip
 door_games/lord_igms/ss20.zip
 door_games/lord_igms/stable01.zip
 door_games/lord_igms/stbar201.zip
-door_games/lord_igms/stone%21.zip
+door_games/lord_igms/stone!.zip
 door_games/lord_igms/stoneb10.zip
 door_games/lord_igms/strong12.zip
 door_games/lord_igms/strport1.zip
@@ -5566,7 +5566,7 @@ door_games/lord_utils/ccigm-01.zip
 door_games/lord_utils/ccigm-02.zip
 door_games/lord_utils/ccigm-03.zip
 door_games/lord_utils/ccigm-1h.zip
-door_games/lord_utils/change%21.zip
+door_games/lord_utils/change!.zip
 door_games/lord_utils/chat015.zip
 door_games/lord_utils/chat02.zip
 door_games/lord_utils/clnmap10.zip
@@ -5932,7 +5932,7 @@ elebbs_utils/elehdr11.zip
 elebbs_utils/ewhodx10.zip
 elebbs_utils/farfix01.zip
 elebbs_utils/filesrax.zip
-elebbs_utils/iph-in%21.zip
+elebbs_utils/iph-in!.zip
 elebbs_utils/postcall.zip
 elebbs_utils/setdate.zip
 elebbs_utils/tagging.zip
